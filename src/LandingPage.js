@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './LandingPage.scss';  // Make sure to import the SCSS for styling
+import './LandingPage.scss';  
+import FinancialTable from './FinancialTable/FinancialTable';
 
 function Home() {
   // State for each input field
@@ -10,6 +11,7 @@ function Home() {
   const [currentNetWorth, setCurrentNetWorth] = useState('');
   const [expectedRateOfReturn, setExpectedRateOfReturn] = useState('');
   const [results, setResults] = useState(null);  
+  
 
   const inflationRate = "3%";
 
@@ -23,9 +25,19 @@ function Home() {
       expectedRateOfReturn: parseFloat(expectedRateOfReturn)
     };
 
+  //   try {
+  //     const response = await axios.post('http://localhost:3001/calculate', payload);
+  //     setResults(response.data); 
+  //   } catch (error) {
+  //     console.error('Error performing the calculation:', error);
+  //     alert('Calculation failed: ' + (error.response ? error.response.data.error : error.message));
+  //   }
+
+  // };
     try {
       const response = await axios.post('http://localhost:3001/calculate', payload);
-      setResults(response.data); 
+      console.log("Received data from server:", response.data); // Log data received from server
+      setResults(response.data);
     } catch (error) {
       console.error('Error performing the calculation:', error);
       alert('Calculation failed: ' + (error.response ? error.response.data.error : error.message));
@@ -99,6 +111,9 @@ function Home() {
           <p>Required savings: {results.requiredSavings}</p>
         </div>
       )}
+      <FinancialTable data={results ? results.yearlyData : []} />
+      
+
     </div>
   );
 }
