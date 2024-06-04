@@ -3,17 +3,17 @@ import { Line } from 'react-chartjs-2';
 import './FIREChart.scss';
 
 function FIREChart({ data }) {
-    // Check if data is defined and is an array with length
+    
     if (!data || !Array.isArray(data) || data.length === 0) {
         return <p>No data available. Please submit the form to calculate.</p>;
     }
 
     const chartData = {
-        labels: data.map((year, index) => index), // Assuming 'index' is a placeholder for actual year labels
+        labels: data.map(data => data.chartYear), 
         datasets: [
             {
                 label: 'Net Worth',
-                data: data.map(year => year.netWorth),
+                data: data.map(data => data.netWorth),
                 fill: false,
                 backgroundColor: 'rgba(75,192,192,0.2)',
                 borderColor: 'rgba(75,192,192,1)',
@@ -52,11 +52,8 @@ function FIREChart({ data }) {
             }
         },
         animation: {
-            duration: 4000, // Duration of the animation for the data
-            easing: 'easeInOutElastic', // Easing function for the animation
-            onProgress: function(animation) {
-                console.log('Progressive animation in action!');
-            }
+            duration: 4000, 
+            easing: 'easeInOutElastic', 
         },
         animations: {
             tension: {

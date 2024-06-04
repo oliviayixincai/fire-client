@@ -5,17 +5,19 @@ import FinancialTable from './FinancialTable/FinancialTable';
 import FIREChart from './FIREChart/FIREChart';
 
 function Home() {
-  // State for each input field
-  const [age, setAge] = useState('');
-  const [annualIncome, setAnnualIncome] = useState('');
-  const [annualExpenses, setAnnualExpenses] = useState('');
-  const [currentNetWorth, setCurrentNetWorth] = useState('');
-  const [expectedRateOfReturn, setExpectedRateOfReturn] = useState('');
+
+  const [age, setAge] = useState(35);
+  const [annualIncome, setAnnualIncome] = useState(80000);
+  const [annualExpenses, setAnnualExpenses] = useState(30000);
+  const [currentNetWorth, setCurrentNetWorth] = useState(20000);
+  const [expectedRateOfReturn, setExpectedRateOfReturn] = useState(3);
   const [results, setResults] = useState(null);  
   
-  const [chartData, setChartData] = useState([]);
+  const [visualData, setVisualData] = useState([]);
 
   const inflationRate = "3%";
+
+
 
   const handleCalculate = async (event) => {
     event.preventDefault();
@@ -30,9 +32,9 @@ function Home() {
 
     try {
       const response = await axios.post('http://localhost:3001/calculate', payload);
-      console.log("Received data from server:", response.data); // Log data received from server
+      console.log("Received data from server:", response.data);
       setResults(response.data);
-      setChartData(response.data.yearlyData);
+      setVisualData(response.data.yearlyData);
     } catch (error) {
       console.error('Error performing the calculation:', error);
       alert('Calculation failed: ' + (error.response ? error.response.data.error : error.message));
@@ -106,9 +108,10 @@ function Home() {
           <p>Required savings: {results.requiredSavings}</p>
         </div>
       )}
-      <FinancialTable data={results ? results.yearlyData : []} />
-      {chartData.length > 0 && <FIREChart data={chartData} />}
-
+      <FinancialTable data={visualData} />
+      <FIREChart data={visualData} />    
+     
+      <button onClick={() => window.location.href='/tips'}>Savings Tips</button>
     </div>
   );
 }
