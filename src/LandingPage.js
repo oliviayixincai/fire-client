@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './LandingPage.scss';  
 import FinancialTable from './FinancialTable/FinancialTable';
+import FIREChart from './FIREChart/FIREChart';
 
 function Home() {
   // State for each input field
@@ -12,6 +13,7 @@ function Home() {
   const [expectedRateOfReturn, setExpectedRateOfReturn] = useState('');
   const [results, setResults] = useState(null);  
   
+  const [chartData, setChartData] = useState([]);
 
   const inflationRate = "3%";
 
@@ -25,19 +27,12 @@ function Home() {
       expectedRateOfReturn: parseFloat(expectedRateOfReturn)
     };
 
-  //   try {
-  //     const response = await axios.post('http://localhost:3001/calculate', payload);
-  //     setResults(response.data); 
-  //   } catch (error) {
-  //     console.error('Error performing the calculation:', error);
-  //     alert('Calculation failed: ' + (error.response ? error.response.data.error : error.message));
-  //   }
 
-  // };
     try {
       const response = await axios.post('http://localhost:3001/calculate', payload);
       console.log("Received data from server:", response.data); // Log data received from server
       setResults(response.data);
+      setChartData(response.data.yearlyData);
     } catch (error) {
       console.error('Error performing the calculation:', error);
       alert('Calculation failed: ' + (error.response ? error.response.data.error : error.message));
@@ -112,7 +107,7 @@ function Home() {
         </div>
       )}
       <FinancialTable data={results ? results.yearlyData : []} />
-      
+      {chartData.length > 0 && <FIREChart data={chartData} />}
 
     </div>
   );
