@@ -1,0 +1,25 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.landing-page {
+  padding-top: 35vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: url("../../assets/images/home.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $primary-darkblue;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-weight: 600;
+  }
+}
+

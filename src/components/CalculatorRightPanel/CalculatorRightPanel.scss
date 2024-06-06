@@ -1,0 +1,29 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.right-panel {
+  &__button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+
+  &__chart-button {
+    min-width: 120px;
+    padding: 8px 16px;
+    background-color: transparent;
+    color: $primary-darkblue;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      background-color: $primary-lightblue;
+    }
+  }
+
+  &__content {
+    padding-top: 2rem;
+  }
+}

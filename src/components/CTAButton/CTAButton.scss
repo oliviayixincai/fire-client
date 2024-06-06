@@ -1,0 +1,54 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.CTAButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__cta-button {
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    font-weight: 600;
+    padding: 0 1rem;
+    min-width: 4.5rem;
+
+    @include tablet {
+      width: auto;
+      height: 2.75rem;
+      font-size: 1.25rem;
+    }
+
+    &--primary {
+      background-color: $primary-darkblue;
+      color: $primary-white;
+      &:hover {
+        cursor: pointer;
+        background-color: $primary-lightblue;
+      }
+    }
+
+    &--secondary {
+      background-color: $primary-white;
+      color: $secondary-darkslate;
+      border: 1px solid $secondary-cloud;
+      &:hover {
+        cursor: pointer;
+        color: $primary-darkblue;
+        border-color: $primary-darkblue;
+      }
+    }
+
+    &--danger {
+      background-color: $primary-red;
+      color: $primary-white;
+      &:hover {
+        cursor: pointer;
+        background-color: $background-graphite;
+      }
+    }
+  }
+}

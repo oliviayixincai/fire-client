@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# FIRE Calculator Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The FIRE (Financial Independence, Retire Early) Calculator Frontend is an interactive tool designed to help users plan for financial independence and early retirement. This React application utilizes advanced front-end technologies and methodologies to deliver a responsive and visually appealing experience, showcasing dynamic data visualization and user interaction.
 
-## Available Scripts
+## Features
+- **Interactive Financial Simulation**: Users can adjust their financial metrics such as age, annual income, and expenses to see their financial independence timeline dynamically adjust.
+- **Customizable User Inputs**: Leverages React's state management to handle user inputs seamlessly, offering a real-time, responsive input feedback system.
+- **Responsive Charts and Graphs**: Integrates Chart.js for graphical representation of financial outcomes, enhancing the analytical experience by depicting potential retirement years and savings growth.
+- **Responsive Design:** Ensures a seamless experience across various devices and screen sizes.
+- **Error Handling**: Implements robust form validations ensuring that all user inputs are correct before processing, enhancing user experience and data integrity.
 
-In the project directory, you can run:
+## Tech Stack
+- **React.js**: For building a high-performant UI.
+- **Bootstrap**: For responsive design.
+- **Chart.js**: For dynamic data visualization.
+- **Axios**: For HTTP requests to interact with the backend.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Installation
+```bash
+git clone git@github.com:oliviayixincai/fire-client.git
+cd fire-client
+npm install
+npm start
+```
